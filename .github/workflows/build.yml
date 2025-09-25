@@ -1,5 +1,7 @@
 name: Build ICS
-
+permissions:
+  contents: write
+  
 on:
   schedule:
     - cron: "0 0 * * 0"   # every Sunday at midnight UTC
