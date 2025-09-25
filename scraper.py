@@ -15,12 +15,27 @@ def fetch_closed_times():
     # Example: look for <td> with inline style "color:red" or similar
     for cell in soup.find_all("td"):
         style = cell.get("style", "").lower()
-        # if "red" in style:  # this is simplistic; adjust based on site
-        text = cell.get_text(strip=True)
-        day = cell.find_parent("tr").find("td").get_text(strip=True)
-        closed_times.append((day, text))
+        if "red" in style:  # this is simplistic; adjust based on site
+            text = cell.get_text(strip=True)
+            day = cell.find_parent("tr").find("td").get_text(strip=True)
+            closed_times.append((day, text))
 
     return closed_times
+
+def fetch_all_times():
+    r = requests.get(URL)
+    r.raise_for_status()
+    soup = BeautifulSoup(r.text, "html.parser")
+
+    events = []
+    for cell in soup.find_all("td"):
+        text = cell.get_text(strip=True)
+        if not text or "-" not in text:
+            continue  # skip empty cells or headers
+        day = cell.find_parent("tr").find("td").get_text(strip=True)
+        events.append((day, text))
+
+    return events
 
 
 def parse_time_range(day, time_str):
@@ -68,9 +83,15 @@ def build_calendar(events):
 
 
 if __name__ == "__main__":
-    closed = fetch_closed_times()
-    cal = build_calendar(closed)
-    with open("gym-closed.ics", "w") as f:
+    # closed = fetch_closed_times()
+    # cal = build_calendar(closed)
+    #with open("gym-closed.ics", "w") as f:
+    #    f.writelines(cal)
+    #print("Generated gym-closed.ics")
+    
+    all = fetch_all_times()
+    cal = build_calendar(all)
+    with open("gym-times.ics", "w") as f:
         f.writelines(cal)
-    print("Generated gym-closed.ics")
+    print("Generated gym-times.ics")
 
