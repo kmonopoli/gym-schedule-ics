@@ -27,5 +27,5 @@ jobs:
             echo "No changes to commit"
           else
             git commit -m "Update gym-closed.ics"
-            git push origin HEAD:main
+            git push origin HEAD:master
           fi
