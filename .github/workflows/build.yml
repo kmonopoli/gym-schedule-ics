@@ -1,0 +1,27 @@
+name: Build ICS
+
+on:
+  schedule:
+    - cron: "0 0 * * 0"   # every Sunday at midnight UTC
+  workflow_dispatch:       # allow manual trigger
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      - name: Install deps
+        run: pip install -r requirements.txt
+      - name: Run scraper
+        run: python scraper.py
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add gym-closed.ics
+          git commit -m "Update gym-closed.ics" || echo "No changes"
+          git push
