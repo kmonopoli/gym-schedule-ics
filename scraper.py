@@ -15,10 +15,10 @@ def fetch_closed_times():
     # Example: look for <td> with inline style "color:red" or similar
     for cell in soup.find_all("td"):
         style = cell.get("style", "").lower()
-        if "red" in style:  # this is simplistic; adjust based on site
-            text = cell.get_text(strip=True)
-            day = cell.find_parent("tr").find("td").get_text(strip=True)
-            closed_times.append((day, text))
+        # if "red" in style:  # this is simplistic; adjust based on site
+        text = cell.get_text(strip=True)
+        day = cell.find_parent("tr").find("td").get_text(strip=True)
+        closed_times.append((day, text))
 
     return closed_times
 
