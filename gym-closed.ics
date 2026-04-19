@@ -22,30 +22,20 @@ RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:69d97d0e-e1ad-596f-bc19-a8ae2340f4bc@mtolympusgym.us
-DTSTAMP:20260412T032508Z
-DTSTART;TZID=America/New_York:20260408T060000
-DTEND;TZID=America/New_York:20260408T070000
+UID:4970458c-f293-5cb2-9d72-460fe7751331@mtolympusgym.us
+DTSTAMP:20260419T033009Z
+DTSTART;TZID=America/New_York:20260415T060000
+DTEND;TZID=America/New_York:20260415T070000
 SUMMARY:Gym Closed (PT) [Wednesday]
 DESCRIPTION:Mt. Olympus Open Gym unavailable (red slot). Source: https://mtolympusgym.us/pages/weekly-schedule
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:b83710e0-818e-5dfa-8f69-f8a72a2d98aa@mtolympusgym.us
-DTSTAMP:20260412T032508Z
-DTSTART;TZID=America/New_York:20260410T080000
-DTEND;TZID=America/New_York:20260410T090000
-SUMMARY:Gym Closed (PT) [Friday]
-DESCRIPTION:Mt. Olympus Open Gym unavailable (red slot). Source: https://mtolympusgym.us/pages/weekly-schedule
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
-UID:eb406594-f318-58eb-a4b6-0e5cdadad1a2@mtolympusgym.us
-DTSTAMP:20260412T032508Z
-DTSTART;TZID=America/New_York:20260410T090000
-DTEND;TZID=America/New_York:20260410T100000
+UID:eae93435-550f-5a46-86a1-08705826f65b@mtolympusgym.us
+DTSTAMP:20260419T033009Z
+DTSTART;TZID=America/New_York:20260417T080000
+DTEND;TZID=America/New_York:20260417T090000
 SUMMARY:Gym Closed (PT) [Friday]
 DESCRIPTION:Mt. Olympus Open Gym unavailable (red slot). Source: https://mtolympusgym.us/pages/weekly-schedule
 STATUS:CONFIRMED
